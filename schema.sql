@@ -1,5 +1,4 @@
-CREATE TABLE articles (
+CREATE TABLE questions (
 	id SERIAL PRIMARY KEY,
-	title VARCHAR(255) NOT NULL,
-	article TEXT NOT NULL
+	question TEXT NOT NULL
 )
