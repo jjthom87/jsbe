@@ -27,3 +27,18 @@ exports.getAllQuestions = function(req, res, next){
     }
 	});
 }
+
+exports.getQuestion = function(req, res, next){
+  var query = "SELECT * FROM questions where id=" + req.params.id;
+  dbClient.query(query, (error,queryRes) => {
+    if(error){
+      res.json({statusCode: 422, error: error})
+    } else {
+      res.json({
+        statusCode: 200,
+        message: "successfully retrieved question",
+        question: queryRes.rows[0]
+      })
+    }
+  });
+}
