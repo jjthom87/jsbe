@@ -2,6 +2,7 @@
 var express = require('express');
 var app = express();
 
+var path = require('path');
 var bodyParser = require('body-parser');
 
 var router = require('./services/router');
@@ -21,6 +22,10 @@ extended: true,
 parameterLimit:50000}));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname + "/client/index.html"));
+});
 
 app.use('/v1', router);
 
