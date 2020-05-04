@@ -1,7 +1,7 @@
 CREATE TABLE questions (
 	id SERIAL PRIMARY KEY,
 	question TEXT NOT NULL
-)
+);
 
 CREATE TABLE responses (
 	id SERIAL PRIMARY KEY,

@@ -32,7 +32,15 @@ exports.getQuestion = function(req, res, next){
   var query = "SELECT * FROM questions where id=" + req.params.id;
   dbClient.query(query, (error,queryRes) => {
     if(error){
-      res.json({statusCode: 422, error: error})
+      res.json({
+        statusCode: 422,
+        error: error
+      })
+    } else if (queryRes.rows.length == 0){
+      res.json({
+        statusCode: 404,
+        message: "No Question Found"
+      })
     } else {
       res.json({
         statusCode: 200,
